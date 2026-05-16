@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>행운 네잎클로버 일본어 단어장</title>
+  <style>
+    @font-face{
+      font-family:"KleeOneLocal";
+      src:url("./KleeOne-Regular.ttf") format("truetype");
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
+    }
+    :root{
+      --bg:#f6fff2;
+      --bg2:#eaffdf;
+      --card:#ffffff;
+      --line:#bde7ad;
+      --green:#52b85a;
+      --green2:#7edb74;
+      --green3:#dff7d8;
+      --mint:#d9fff0;
+      --text:#315239;
+      --sub:#6b856f;
+      --ok:#2f9d58;
+      --bad:#e56b78;
+      --gold:#f0c95a;
+      --shadow:0 12px 34px rgba(82,184,90,.16);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(126,219,116,.28), transparent 26%),
+        radial-gradient(circle at 92% 4%, rgba(217,255,240,.9), transparent 22%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      min-height:100vh;
+    }
+    .jp,.jp-soft{font-family:"KleeOneLocal","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;letter-spacing:.02em}
+    .wrap{max-width:1180px;margin:0 auto;padding:18px 14px 42px}
+    .hero{
+      background:rgba(255,255,255,.92);
+      border:2px solid var(--line);
+      border-radius:34px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before,.hero:after{content:"☘️";position:absolute;opacity:.18;font-size:64px}
+    .hero:before{top:8px;right:20px}.hero:after{left:22px;bottom:8px}
+    h1{margin:0 0 8px;color:var(--green);font-size:32px}
+    .hero p{margin:0;line-height:1.65;color:var(--sub)}
+    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .tab{
+      border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;
+      color:var(--green);font-weight:800;cursor:pointer
+    }
+    .tab.active{background:linear-gradient(90deg,var(--green),var(--green2));color:#fff;border-color:var(--green)}
+    .layout{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+    .card{
+      background:rgba(255,255,255,.96);border:2px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:18px
+    }
+    .section-title{font-size:22px;font-weight:900;color:var(--green);margin:0 0 10px}
+    .subtext,.hint,.foot{font-size:13px;color:var(--sub);line-height:1.7}
+    .mode-row,.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .mode,.btn,.choice,.mini-btn,.tool-btn{
+      cursor:pointer;transition:.18s ease;font-weight:800;border-radius:999px
+    }
+    .mode{background:#fff;border:2px solid var(--mint);color:#2f9d72;padding:10px 14px}
+    .mode.active{background:#2fbd7a;color:#fff;border-color:#2fbd7a}
+    .btn,.mini-btn,.tool-btn{border:none;padding:10px 14px}
+    .btn.primary{background:linear-gradient(90deg,var(--green),var(--green2));color:#fff}
+    .btn.soft{background:#fff;color:var(--green);border:2px solid var(--line)}
+    .btn.gold{background:#fffdf2;color:#9a7515;border:2px solid #f2dc8a}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .stat{background:#fff;border:2px solid var(--green3);border-radius:20px;padding:12px;text-align:center}
+    .stat .n{font-size:20px;font-weight:900;color:var(--green)}
+    .progress{height:14px;background:#e9fbe3;border-radius:999px;overflow:hidden;border:1px solid #ccefc1;margin-top:12px}
+    .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green2),var(--green));transition:.25s ease}
+    .study-box,.quiz-box,.write-box,.list-box,.wrong-item,.data-box{
+      border-radius:22px;padding:16px;border:2px solid var(--green3);background:#fbfff9
+    }
+    .big{font-size:56px;font-weight:900;line-height:1.15}
+    .mid{font-size:26px;font-weight:900;line-height:1.4}
+    .label{font-size:12px;font-weight:900;color:var(--green);margin-bottom:8px}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .chip{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px}
+    .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .choice{
+      border-radius:18px;padding:14px;text-align:left;background:#fff;border:2px solid var(--line);
+      color:var(--text);font-size:17px
+    }
+    .choice.correct{border-color:#8bd99d;background:#f0fff4;color:#1f7d50}
+    .choice.wrong{border-color:#ffc4cf;background:#fff4f6;color:#bf4561}
+    .answer-msg{margin-top:12px;padding:12px 14px;border-radius:18px;font-weight:900;line-height:1.7}
+    .answer-msg.ok{background:#effcf5;border:2px solid #bde8cf;color:#238155}
+    .answer-msg.bad{background:#fff2f5;border:2px solid #ffc8d3;color:#c44f68}
+    .write-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .square{
+      aspect-ratio:1/1;border:2px dashed #a6d99d;border-radius:18px;background:
+      linear-gradient(90deg,transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
+      linear-gradient(transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
+      #fff;
+    }
+    .list-box,.wrong-list{max-height:340px;overflow:auto}
+    .vocab-item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 0;border-bottom:1px dashed #c6e8bb}
+    .vocab-item:last-child{border-bottom:none}
+    .vocab-main{font-weight:900}
+    .vocab-sub{font-size:13px;color:var(--sub);margin-top:4px}
+    .badge{display:inline-block;background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--green);font-weight:900}
+    .wrong-list{display:grid;gap:10px}
+    .wrong-item{background:#fbfff9}
+    .mini-btn{background:#fff;border:2px solid var(--line);color:var(--green);padding:7px 11px;font-size:12px}
+    .form-grid{display:grid;gap:10px}
+    input,textarea,select{
+      width:100%;padding:12px 14px;border-radius:18px;border:2px solid var(--line);background:#fff;color:var(--text);font-size:14px
+    }
+    textarea{min-height:84px;resize:vertical;font-family:ui-monospace,Consolas,monospace}
+    .clover-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+    .lucky{background:#fffdf2;border:2px solid #f2dc8a;border-radius:18px;padding:10px;color:#83620d;font-weight:800}
+    .draw-tools{display:flex;gap:8px;flex-wrap:wrap}
+    .tool-btn{background:#fff;color:var(--green);border:2px solid var(--line);padding:9px 12px}
+    .tool-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+    .draw-canvas{
+      width:100%;height:260px;display:block;background:
+      linear-gradient(90deg,transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
+      linear-gradient(transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
+      #fff;
+      border:2px dashed #a6d99d;border-radius:18px;touch-action:none;margin-top:10px
+    }
+    @media(max-width:950px){.layout{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.choices{grid-template-columns:1fr}.big{font-size:42px}.mid{font-size:22px}.write-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>☘️ 행운 네잎클로버 일본어 단어장</h1>
+      <p>
+        하루에 두 과씩 차곡차곡 저장하는 <b>7과·8과 전용 v1</b>이야.<br>
+        <b>한자 → 히라가나</b>, <b>히라가나 → 한자</b>, <b>뜻 맞히기</b>, <b>오답노트</b>, <b>DB 내보내기/가져오기</b>까지 넣었어.
+      </p>
+      <div class="clover-row">
+        <span class="lucky">오늘의 행운: 7과 + 8과 완주하면 9과가 쉬워진다 🍀</span>
+      </div>
+    </section>
+
+    <div class="tabs" id="tabs"></div>
+
+    <div class="layout">
+      <main class="card">
+        <h2 class="section-title">🎯 학습 / 퀴즈</h2>
+        <div class="subtext">시험용 핵심은 <b>한자 보고 읽기</b>랑 <b>읽기 보고 한자 떠올리기</b>야. 오늘은 7과·8과만 딱 잡자!</div>
+
+        <div class="mode-row" id="modes"></div>
+        <div class="progress"><div class="fill" id="fill"></div></div>
+        <div class="subtext" id="progressText" style="margin-top:8px">진도 0%</div>
+
+        <div class="toolbar">
+          <button class="btn primary" id="shuffleBtn">랜덤 시작</button>
+          <button class="btn soft" id="prevBtn">이전</button>
+          <button class="btn soft" id="nextBtn">다음</button>
+          <button class="btn gold" id="toggleAnswerBtn">정답 보기</button>
+          <button class="btn soft" id="markKnownBtn">외웠음 체크</button>
+        </div>
+
+        <div id="contentArea"></div>
+      </main>
+
+      <aside style="display:grid;gap:18px">
+        <section class="card">
+          <h3 class="section-title">📊 오늘의 체크</h3>
+          <div class="stat-grid">
+            <div class="stat"><div class="n" id="totalCount">0</div><div>전체</div></div>
+            <div class="stat"><div class="n" id="solvedCount">0</div><div>외움</div></div>
+            <div class="stat"><div class="n" id="wrongCount">0</div><div>오답</div></div>
+            <div class="stat"><div class="n" id="currentCount">0</div><div>현재</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">🖊️ 손글씨 연습</h3>
+          <div class="hint">단어를 보고 바로 써보는 미니 칸이야. 히라가나 읽기 먼저 쓰고, 한자도 따라 쓰면 좋아 ✍️</div>
+          <div class="draw-tools" style="margin-top:10px">
+            <button class="tool-btn active" id="penBtn">펜</button>
+            <button class="tool-btn" id="eraserBtn">지우개</button>
+            <button class="tool-btn" id="clearCanvasBtn">전체 지우기</button>
+          </div>
+          <canvas id="drawCanvas" class="draw-canvas" width="520" height="260"></canvas>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">💚 오답노트</h3>
+          <div class="wrong-list" id="wrongList"></div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">➕ DB 카드 추가</h3>
+          <div class="form-grid">
+            <select id="addCategory"></select>
+            <input id="addKanji" placeholder="한자 표기 예: 風" />
+            <input id="addReading" placeholder="히라가나 읽기 예: かぜ" />
+            <input id="addMeaning" placeholder="뜻 예: 바람" />
+            <button class="btn primary" id="addBtn">카드 추가</button>
+          </div>
+          <div class="foot">내일 9과·10과도 여기서 바로 추가 가능해 ☘️</div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">🗄️ 데이터베이스 관리</h3>
+          <div class="data-box">
+            <div class="hint">localStorage에 진도/오답/추가카드가 저장돼. GitHub Pages에서도 같은 브라우저면 유지돼!</div>
+            <div class="toolbar">
+              <button class="btn soft" id="exportBtn">DB 내보내기</button>
+              <button class="btn soft" id="importBtn">DB 가져오기</button>
+              <button class="btn gold" id="resetBtn">진도 초기화</button>
+            </div>
+            <textarea id="dbBox" placeholder="내보낸 JSON 또는 가져올 JSON이 여기에 표시돼"></textarea>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const baseDeck = {
+      "7과": [
+        {kanji:"薬局", reading:"やっきょく", meaning:"약국"},
+        {kanji:"課長", reading:"かちょう", meaning:"과장"},
+        {kanji:"食事", reading:"しょくじ", meaning:"식사"},
+        {kanji:"未成年", reading:"みせいねん", meaning:"미성년자"},
+        {kanji:"来年", reading:"らいねん", meaning:"내년"},
+        {kanji:"定休日", reading:"ていきゅうび", meaning:"정기 휴일"},
+        {kanji:"外食", reading:"がいしょく", meaning:"외식"},
+        {kanji:"連休", reading:"れんきゅう", meaning:"연휴"}
+      ],
+      "8과": [
+        {kanji:"運転", reading:"うんてん", meaning:"운전"},
+        {kanji:"紅葉", reading:"こうよう", meaning:"단풍"},
+        {kanji:"温泉", reading:"おんせん", meaning:"온천"},
+        {kanji:"安心", reading:"あんしん", meaning:"안심"},
+        {kanji:"会話", reading:"かいわ", meaning:"회화, 대화"},
+        {kanji:"大雪", reading:"おおゆき", meaning:"폭설, 큰 눈"},
+        {kanji:"奥さん", reading:"おくさん", meaning:"부인, 아내"},
+        {kanji:"風", reading:"かぜ", meaning:"바람"}
+      ],
+      "9과": [],
+      "10과": [],
+      "11과": [],
+      "12과": []
+    };
+
+    const MODES = [
+      {key:"flash", label:"플래시카드"},
+      {key:"kanjiToReading", label:"한자→히라가나"},
+      {key:"readingToKanji", label:"히라가나→한자"},
+      {key:"meaningQuiz", label:"뜻 맞히기"},
+      {key:"write", label:"쓰기 모드"},
+      {key:"list", label:"단어장 보기"}
+    ];
+
+    let extraDeck = JSON.parse(localStorage.getItem("clover_extra_v1") || "{}");
+    let wrongNotes = JSON.parse(localStorage.getItem("clover_wrong_v1") || "[]");
+    let solved = JSON.parse(localStorage.getItem("clover_solved_v1") || "{}");
+    let currentTab = "7과";
+    let currentMode = "flash";
+    let currentIndex = 0;
+    let reveal = false;
+    let currentChoices = [];
+    let currentAnswered = false;
+
+    function save(){
+      localStorage.setItem("clover_extra_v1", JSON.stringify(extraDeck));
+      localStorage.setItem("clover_wrong_v1", JSON.stringify(wrongNotes));
+      localStorage.setItem("clover_solved_v1", JSON.stringify(solved));
+    }
+    function getDeck(){
+      const merged = JSON.parse(JSON.stringify(baseDeck));
+      Object.keys(extraDeck).forEach(k=>{
+        if(!merged[k]) merged[k]=[];
+        merged[k] = merged[k].concat(extraDeck[k]);
+      });
+      return merged;
+    }
+    function getTabs(){ return [...Object.keys(baseDeck), "총망라 퀴즈"]; }
+    function getList(tab){
+      const deck = getDeck();
+      if(tab === "총망라 퀴즈") return Object.keys(deck).flatMap(k => deck[k] || []);
+      return deck[tab] || [];
+    }
+    function shuffle(arr){
+      const copy=[...arr];
+      for(let i=copy.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [copy[i],copy[j]]=[copy[j],copy[i]];
+      }
+      return copy;
+    }
+    function pickChoices(correctValue, pool, field){
+      const others = shuffle(pool.filter(v=>v[field] !== correctValue)).slice(0,3).map(v=>v[field]);
+      return shuffle([correctValue, ...others]);
+    }
+    function currentList(){ return getList(currentTab); }
+    function currentCard(){ return currentList()[currentIndex] || null; }
+    function cardId(card){ return `${currentTab}__${card.kanji}__${card.reading}`; }
+    function prepareChoices(){
+      const card=currentCard();
+      if(!card){ currentChoices=[]; return; }
+      const all=Object.values(getDeck()).flat();
+      const pool=currentList().length>=4 ? currentList() : all;
+      if(currentMode==="kanjiToReading") currentChoices=pickChoices(card.reading,pool,"reading");
+      else if(currentMode==="readingToKanji") currentChoices=pickChoices(card.kanji,pool,"kanji");
+      else if(currentMode==="meaningQuiz") currentChoices=pickChoices(card.meaning,pool,"meaning");
+      else currentChoices=[];
+      currentAnswered=false; reveal=false;
+    }
+    function renderTabs(){
+      const tabs=document.getElementById("tabs");
+      tabs.innerHTML="";
+      getTabs().forEach(tab=>{
+        const b=document.createElement("button");
+        b.className="tab"+(tab===currentTab?" active":"");
+        b.textContent=tab;
+        b.onclick=()=>{currentTab=tab;currentIndex=0;prepareChoices();render();};
+        tabs.appendChild(b);
+      });
+      const sel=document.getElementById("addCategory");
+      sel.innerHTML="";
+      Object.keys(baseDeck).forEach(tab=>{
+        const op=document.createElement("option");
+        op.value=tab; op.textContent=tab; sel.appendChild(op);
+      });
+    }
+    function renderModes(){
+      const modes=document.getElementById("modes");
+      modes.innerHTML="";
+      MODES.forEach(m=>{
+        const b=document.createElement("button");
+        b.className="mode"+(m.key===currentMode?" active":"");
+        b.textContent=m.label;
+        b.onclick=()=>{currentMode=m.key;currentIndex=0;prepareChoices();render();};
+        modes.appendChild(b);
+      });
+    }
+    function renderStats(){
+      const list=currentList();
+      const solvedCount=list.filter(c=>solved[cardId(c)]).length;
+      document.getElementById("totalCount").textContent=list.length;
+      document.getElementById("solvedCount").textContent=solvedCount;
+      document.getElementById("wrongCount").textContent=wrongNotes.length;
+      document.getElementById("currentCount").textContent=list.length?`${currentIndex+1}`:0;
+      const progress=list.length?Math.round((solvedCount/list.length)*100):0;
+      document.getElementById("fill").style.width=progress+"%";
+      document.getElementById("progressText").textContent=`진도 ${progress}% · ${solvedCount}/${list.length}`;
+    }
+    function markWrong(card,prompt,correct){
+      wrongNotes.unshift({tab:currentTab,kanji:card.kanji,reading:card.reading,meaning:card.meaning,prompt,correct});
+      save(); renderWrong();
+    }
+    function renderFlash(card){
+      return `<div class="study-box">
+        <div class="label">플래시카드</div>
+        <div class="big jp">${card.kanji}</div>
+        <div class="meta">
+          <div class="chip"><div class="label">읽기</div><div class="mid jp-soft">${reveal?card.reading:"???"}</div></div>
+          <div class="chip"><div class="label">뜻</div><div class="mid" style="font-size:18px">${reveal?card.meaning:"가리고 외워보기"}</div></div>
+        </div>
+      </div>`;
+    }
+    function renderQuiz(card,mode){
+      const map={
+        kanjiToReading:{prompt:card.kanji, correct:card.reading, label:"한자를 보고 알맞은 히라가나 고르기"},
+        readingToKanji:{prompt:card.reading, correct:card.kanji, label:"히라가나를 보고 알맞은 한자 고르기"},
+        meaningQuiz:{prompt:card.kanji, correct:card.meaning, label:"한자를 보고 알맞은 뜻 고르기"}
+      };
+      const q=map[mode];
+      return `<div class="quiz-box">
+        <div class="label">${q.label}</div>
+        <div class="big jp">${q.prompt}</div>
+        <div class="meta">
+          <div class="chip"><div class="label">힌트</div><div class="mid jp-soft" style="font-size:18px">${mode==="meaningQuiz"?card.reading:card.meaning}</div></div>
+          <div class="chip"><div class="label">정답 보기</div><div class="mid jp-soft" style="font-size:18px">${reveal?q.correct:"선택 후 확인"}</div></div>
+        </div>
+        <div class="choices" id="choicesArea"></div>
+        <div id="answerArea"></div>
+      </div>`;
+    }
+    function renderWrite(card){
+      return `<div class="write-box">
+        <div class="label">쓰기 모드</div>
+        <div class="mid">문제: <b class="jp">${Math.random()<0.5?card.kanji:card.reading}</b></div>
+        <div class="hint" style="margin-top:8px">종이에 직접 써보고 정답 보기로 확인해줘.</div>
+        <div class="write-grid"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+        <div class="data-box" style="margin-top:14px">
+          <div class="label">정답</div>
+          <div class="mid" style="font-size:20px">한자: <span class="jp">${reveal?card.kanji:"가리고 써보기"}</span></div>
+          <div class="mid" style="font-size:20px;margin-top:8px">읽기: <span class="jp-soft">${reveal?card.reading:"가리고 써보기"}</span></div>
+          <div class="mid" style="font-size:16px;margin-top:8px">뜻: ${reveal?card.meaning:"가리고 써보기"}</div>
+        </div>
+      </div>`;
+    }
+    function renderList(list){
+      return `<div class="list-box">${list.map(item=>`
+        <div class="vocab-item">
+          <div><div class="vocab-main jp">${item.kanji}</div><div class="vocab-sub"><span class="jp-soft">${item.reading}</span> · ${item.meaning}</div></div>
+          <div class="badge">☘️</div>
+        </div>`).join("")}</div>`;
+    }
+    function renderContent(){
+      const area=document.getElementById("contentArea");
+      const card=currentCard();
+      if(!card){area.innerHTML=`<div class="study-box"><div class="mid">아직 카드가 없어 ☘️ 오른쪽에서 추가해줘!</div></div>`;return;}
+      if(currentMode==="flash") area.innerHTML=renderFlash(card);
+      else if(["kanjiToReading","readingToKanji","meaningQuiz"].includes(currentMode)) area.innerHTML=renderQuiz(card,currentMode);
+      else if(currentMode==="write") area.innerHTML=renderWrite(card);
+      else area.innerHTML=renderList(currentList());
+
+      if(["kanjiToReading","readingToKanji","meaningQuiz"].includes(currentMode)){
+        const map={
+          kanjiToReading:{correct:card.reading,prompt:card.kanji},
+          readingToKanji:{correct:card.kanji,prompt:card.reading},
+          meaningQuiz:{correct:card.meaning,prompt:card.kanji}
+        };
+        const q=map[currentMode], choicesArea=document.getElementById("choicesArea"), answerArea=document.getElementById("answerArea");
+        choicesArea.innerHTML="";
+        currentChoices.forEach(choice=>{
+          const b=document.createElement("button");
+          b.className="choice jp-soft";
+          b.textContent=choice;
+          b.onclick=()=>{
+            if(currentAnswered) return;
+            currentAnswered=true; reveal=true;
+            if(choice===q.correct){
+              b.classList.add("correct"); solved[cardId(card)]=true; save();
+              answerArea.innerHTML=`<div class="answer-msg ok">정답 ☘️<br><span class="jp">${card.kanji}</span> → <span class="jp-soft">${card.reading}</span><br>${card.meaning}</div>`;
+            }else{
+              b.classList.add("wrong");
+              [...choicesArea.children].forEach(el=>{if(el.textContent===q.correct) el.classList.add("correct");});
+              markWrong(card,q.prompt,q.correct);
+              answerArea.innerHTML=`<div class="answer-msg bad">오답 체크 완료 💚<br>정답: <span class="jp-soft">${q.correct}</span><br><span class="jp">${card.kanji}</span> · <span class="jp-soft">${card.reading}</span> · ${card.meaning}</div>`;
+            }
+            renderStats();
+          };
+          choicesArea.appendChild(b);
+        });
+      }
+    }
+    function renderWrong(){
+      const wrap=document.getElementById("wrongList");
+      if(!wrongNotes.length){wrap.innerHTML=`<div class="hint">아직 오답이 없어. 완전 좋은 시작이야 🍀</div>`;return;}
+      wrap.innerHTML=wrongNotes.map((w,idx)=>`<div class="wrong-item">
+        <div class="badge">${w.tab}</div>
+        <div style="margin-top:8px;font-weight:900" class="jp">${w.kanji}</div>
+        <div class="subtext" style="margin-top:4px"><span class="jp-soft">${w.reading}</span> · ${w.meaning}</div>
+        <div class="subtext" style="margin-top:8px"><b>문제:</b> ${w.prompt}</div>
+        <div class="subtext"><b>정답:</b> ${w.correct}</div>
+        <div style="margin-top:8px"><button class="mini-btn" data-del="${idx}">삭제</button></div>
+      </div>`).join("");
+      wrap.querySelectorAll("[data-del]").forEach(btn=>{
+        btn.onclick=()=>{wrongNotes.splice(Number(btn.dataset.del),1);save();renderWrong();renderStats();};
+      });
+    }
+    function addCard(){
+      const category=document.getElementById("addCategory").value;
+      const kanji=document.getElementById("addKanji").value.trim();
+      const reading=document.getElementById("addReading").value.trim();
+      const meaning=document.getElementById("addMeaning").value.trim();
+      if(!kanji||!reading||!meaning) return;
+      if(!extraDeck[category]) extraDeck[category]=[];
+      extraDeck[category].push({kanji,reading,meaning});
+      document.getElementById("addKanji").value="";
+      document.getElementById("addReading").value="";
+      document.getElementById("addMeaning").value="";
+      save(); render();
+    }
+    function render(){renderTabs();renderModes();renderStats();renderContent();renderWrong();}
+    document.getElementById("shuffleBtn").onclick=()=>{const list=currentList();if(!list.length)return;currentIndex=Math.floor(Math.random()*list.length);prepareChoices();render();};
+    document.getElementById("prevBtn").onclick=()=>{if(currentIndex>0)currentIndex--;prepareChoices();render();};
+    document.getElementById("nextBtn").onclick=()=>{if(currentIndex<currentList().length-1)currentIndex++;else currentIndex=0;prepareChoices();render();};
+    document.getElementById("toggleAnswerBtn").onclick=()=>{reveal=!reveal;renderContent();};
+    document.getElementById("markKnownBtn").onclick=()=>{const card=currentCard();if(card){solved[cardId(card)]=true;save();renderStats();}};
+    document.getElementById("addBtn").onclick=addCard;
+    document.getElementById("exportBtn").onclick=()=>{document.getElementById("dbBox").value=JSON.stringify({extraDeck,wrongNotes,solved},null,2);};
+    document.getElementById("importBtn").onclick=()=>{
+      try{
+        const data=JSON.parse(document.getElementById("dbBox").value);
+        extraDeck=data.extraDeck||{}; wrongNotes=data.wrongNotes||[]; solved=data.solved||{};
+        save(); render();
+      }catch(e){alert("JSON 형식을 확인해줘!");}
+    };
+    document.getElementById("resetBtn").onclick=()=>{if(confirm("진도와 오답만 초기화할까? 추가카드는 유지돼.")){wrongNotes=[];solved={};save();render();}};
+
+    function setupDrawBoard(){
+      const canvas=document.getElementById("drawCanvas"), ctx=canvas.getContext("2d");
+      const ratio=window.devicePixelRatio||1, rect=canvas.getBoundingClientRect();
+      canvas.width=Math.floor((rect.width||520)*ratio); canvas.height=Math.floor((rect.height||260)*ratio);
+      ctx.setTransform(ratio,0,0,ratio,0,0); ctx.lineCap="round"; ctx.lineJoin="round";
+      let drawing=false, erasing=false, lastX=0,lastY=0;
+      function pos(e){const r=canvas.getBoundingClientRect(), p=e.touches?e.touches[0]:e; return {x:p.clientX-r.left,y:p.clientY-r.top};}
+      function start(e){drawing=true; const p=pos(e); lastX=p.x; lastY=p.y;}
+      function move(e){if(!drawing)return; e.preventDefault(); const p=pos(e); ctx.globalCompositeOperation=erasing?"destination-out":"source-over"; ctx.strokeStyle=erasing?"rgba(0,0,0,1)":"#315239"; ctx.lineWidth=erasing?18:3.5; ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(p.x,p.y); ctx.stroke(); lastX=p.x; lastY=p.y;}
+      function end(){drawing=false;}
+      function setTool(tool){erasing=tool==="eraser"; document.getElementById("penBtn").classList.toggle("active",!erasing); document.getElementById("eraserBtn").classList.toggle("active",erasing);}
+      document.getElementById("penBtn").onclick=()=>setTool("pen");
+      document.getElementById("eraserBtn").onclick=()=>setTool("eraser");
+      document.getElementById("clearCanvasBtn").onclick=()=>ctx.clearRect(0,0,canvas.width,canvas.height);
+      canvas.addEventListener("mousedown",start); canvas.addEventListener("mousemove",move); window.addEventListener("mouseup",end); canvas.addEventListener("mouseleave",end);
+      canvas.addEventListener("touchstart",start,{passive:false}); canvas.addEventListener("touchmove",move,{passive:false}); window.addEventListener("touchend",end); canvas.addEventListener("touchcancel",end);
+    }
+    prepareChoices(); render(); setupDrawBoard();
+  </script>
+</body>
+</html>
