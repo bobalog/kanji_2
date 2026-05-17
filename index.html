@@ -3,516 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>행운 네잎클로버 일본어 단어장</title>
+  <title>일본어(중급) 단어 학습 🍀</title>
   <style>
-    @font-face{
-      font-family:"KleeOneLocal";
-      src:url("./KleeOne-Regular.ttf") format("truetype");
-      font-weight:400;
-      font-style:normal;
-      font-display:swap;
-    }
+    @font-face{font-family:KleeOneLocal;src:url('./KleeOne-Regular.ttf') format('truetype');font-display:swap;}
     :root{
-      --bg:#f6fff2;
-      --bg2:#eaffdf;
-      --card:#ffffff;
-      --line:#bde7ad;
-      --green:#52b85a;
-      --green2:#7edb74;
-      --green3:#dff7d8;
-      --mint:#d9fff0;
-      --text:#315239;
-      --sub:#6b856f;
-      --ok:#2f9d58;
-      --bad:#e56b78;
-      --gold:#f0c95a;
-      --shadow:0 12px 34px rgba(82,184,90,.16);
-      --radius:24px;
+      --bg:#fbfff8;--bg2:#effbe8;--card:#fff;--line:#d8eccc;--line2:#bfe5ae;
+      --green:#43a936;--green2:#6bc657;--dark:#214b20;--text:#2f3b2f;--sub:#7a8874;
+      --pale:#f3fbea;--pale2:#e9f7df;--bad:#e4454e;--ok:#22a83a;--shadow:0 14px 35px rgba(61,139,45,.11);
+      --radius:22px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 8% 12%, rgba(126,219,116,.28), transparent 26%),
-        radial-gradient(circle at 92% 4%, rgba(217,255,240,.9), transparent 22%),
-        linear-gradient(180deg,var(--bg),var(--bg2));
-      min-height:100vh;
-    }
-    .jp,.jp-soft{font-family:"KleeOneLocal","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;letter-spacing:.02em}
-    .wrap{max-width:1180px;margin:0 auto;padding:18px 14px 42px}
-    .hero{
-      background:rgba(255,255,255,.92);
-      border:2px solid var(--line);
-      border-radius:34px;
-      padding:24px;
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero:before,.hero:after{content:"☘️";position:absolute;opacity:.18;font-size:64px}
-    .hero:before{top:8px;right:20px}.hero:after{left:22px;bottom:8px}
-    h1{margin:0 0 8px;color:var(--green);font-size:32px}
-    .hero p{margin:0;line-height:1.65;color:var(--sub)}
-    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-    .tab{
-      border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;
-      color:var(--green);font-weight:800;cursor:pointer
-    }
-    .tab.active{background:linear-gradient(90deg,var(--green),var(--green2));color:#fff;border-color:var(--green)}
-    .layout{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
-    .card{
-      background:rgba(255,255,255,.96);border:2px solid var(--line);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:18px
-    }
-    .section-title{font-size:22px;font-weight:900;color:var(--green);margin:0 0 10px}
-    .subtext,.hint,.foot{font-size:13px;color:var(--sub);line-height:1.7}
-    .mode-row,.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-    .mode,.btn,.choice,.mini-btn,.tool-btn{
-      cursor:pointer;transition:.18s ease;font-weight:800;border-radius:999px
-    }
-    .mode{background:#fff;border:2px solid var(--mint);color:#2f9d72;padding:10px 14px}
-    .mode.active{background:#2fbd7a;color:#fff;border-color:#2fbd7a}
-    .btn,.mini-btn,.tool-btn{border:none;padding:10px 14px}
-    .btn.primary{background:linear-gradient(90deg,var(--green),var(--green2));color:#fff}
-    .btn.soft{background:#fff;color:var(--green);border:2px solid var(--line)}
-    .btn.gold{background:#fffdf2;color:#9a7515;border:2px solid #f2dc8a}
-    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
-    .stat{background:#fff;border:2px solid var(--green3);border-radius:20px;padding:12px;text-align:center}
-    .stat .n{font-size:20px;font-weight:900;color:var(--green)}
-    .progress{height:14px;background:#e9fbe3;border-radius:999px;overflow:hidden;border:1px solid #ccefc1;margin-top:12px}
-    .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green2),var(--green));transition:.25s ease}
-    .study-box,.quiz-box,.write-box,.list-box,.wrong-item,.data-box{
-      border-radius:22px;padding:16px;border:2px solid var(--green3);background:#fbfff9
-    }
-    .big{font-size:56px;font-weight:900;line-height:1.15}
-    .mid{font-size:26px;font-weight:900;line-height:1.4}
-    .label{font-size:12px;font-weight:900;color:var(--green);margin-bottom:8px}
-    .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-    .chip{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px}
-    .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-    .choice{
-      border-radius:18px;padding:14px;text-align:left;background:#fff;border:2px solid var(--line);
-      color:var(--text);font-size:17px
-    }
-    .choice.correct{border-color:#8bd99d;background:#f0fff4;color:#1f7d50}
-    .choice.wrong{border-color:#ffc4cf;background:#fff4f6;color:#bf4561}
-    .answer-msg{margin-top:12px;padding:12px 14px;border-radius:18px;font-weight:900;line-height:1.7}
-    .answer-msg.ok{background:#effcf5;border:2px solid #bde8cf;color:#238155}
-    .answer-msg.bad{background:#fff2f5;border:2px solid #ffc8d3;color:#c44f68}
-    .write-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
-    .square{
-      aspect-ratio:1/1;border:2px dashed #a6d99d;border-radius:18px;background:
-      linear-gradient(90deg,transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
-      linear-gradient(transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
-      #fff;
-    }
-    .list-box,.wrong-list{max-height:340px;overflow:auto}
-    .vocab-item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 0;border-bottom:1px dashed #c6e8bb}
-    .vocab-item:last-child{border-bottom:none}
-    .vocab-main{font-weight:900}
-    .vocab-sub{font-size:13px;color:var(--sub);margin-top:4px}
-    .badge{display:inline-block;background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--green);font-weight:900}
-    .wrong-list{display:grid;gap:10px}
-    .wrong-item{background:#fbfff9}
-    .mini-btn{background:#fff;border:2px solid var(--line);color:var(--green);padding:7px 11px;font-size:12px}
-    .form-grid{display:grid;gap:10px}
-    input,textarea,select{
-      width:100%;padding:12px 14px;border-radius:18px;border:2px solid var(--line);background:#fff;color:var(--text);font-size:14px
-    }
-    textarea{min-height:84px;resize:vertical;font-family:ui-monospace,Consolas,monospace}
-    .clover-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
-    .lucky{background:#fffdf2;border:2px solid #f2dc8a;border-radius:18px;padding:10px;color:#83620d;font-weight:800}
-    .draw-tools{display:flex;gap:8px;flex-wrap:wrap}
-    .tool-btn{background:#fff;color:var(--green);border:2px solid var(--line);padding:9px 12px}
-    .tool-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
-    .draw-canvas{
-      width:100%;height:260px;display:block;background:
-      linear-gradient(90deg,transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
-      linear-gradient(transparent 49.5%,#d9f4d1 49.5%,#d9f4d1 50.5%,transparent 50.5%),
-      #fff;
-      border:2px dashed #a6d99d;border-radius:18px;touch-action:none;margin-top:10px
-    }
-    @media(max-width:950px){.layout{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.choices{grid-template-columns:1fr}.big{font-size:42px}.mid{font-size:22px}.write-grid{grid-template-columns:repeat(2,1fr)}}
+    *{box-sizing:border-box} body{margin:0;color:var(--text);font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:
+      radial-gradient(circle at 4% 2%,rgba(82,178,58,.23),transparent 14%),
+      radial-gradient(circle at 92% 7%,rgba(127,202,94,.18),transparent 18%),
+      linear-gradient(180deg,var(--bg),var(--bg2));min-height:100vh;}
+    .jp{font-family:KleeOneLocal,'Yu Gothic','Hiragino Sans','Noto Sans JP',sans-serif;letter-spacing:.03em}.wrap{max-width:1320px;margin:auto;padding:24px 18px 60px;position:relative}
+    .hero{position:relative;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;margin-bottom:18px;min-height:115px;overflow:hidden}
+    .hero:before{content:'🍀';position:absolute;left:-4px;top:-18px;font-size:92px;filter:drop-shadow(0 8px 14px rgba(57,139,47,.18));transform:rotate(-15deg)}
+    .hero:after{content:'· · ·  🍀  · · ·';position:absolute;left:52%;top:26px;color:#8fcf79;font-size:30px;opacity:.55;letter-spacing:18px;transform:rotate(10deg)}
+    h1{font-size:42px;line-height:1.1;margin:0 0 10px 88px;color:#23621d;text-shadow:0 2px 0 #eef9e8;font-weight:900}.subtitle{margin-left:92px;color:#6f7e68;font-size:17px}.hero-actions{display:flex;gap:12px;z-index:1}.pill{background:rgba(255,255,255,.86);border:1.5px solid var(--line);border-radius:15px;padding:16px 22px;box-shadow:var(--shadow);font-weight:800;color:#183b17}.pill b{font-size:20px;margin-left:15px}.gear{font-size:22px}
+    .tabs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:8px 0 0}.tab{border:1.5px solid var(--line2);background:rgba(255,255,255,.72);padding:18px 12px;border-radius:15px 15px 0 0;color:#285927;font-size:18px;font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(180deg,#69c554,#3fa232);color:white;box-shadow:inset 0 -2px 0 rgba(0,0,0,.08)}
+    .shell{background:rgba(255,255,255,.75);border:1.5px solid var(--line);border-radius:0 0 24px 24px;padding:20px;box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:1fr 390px;gap:22px}.card{background:rgba(255,255,255,.92);border:1.5px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 22px rgba(52,105,35,.06);margin-bottom:14px}.title{font-size:21px;color:#23621d;font-weight:900;margin:0 0 14px}.mode-row{display:flex;gap:10px;flex-wrap:wrap}.mode,.btn,.icon-btn{border:1.5px solid var(--line);background:white;border-radius:12px;padding:12px 16px;color:#244b21;font-weight:900;cursor:pointer}.mode.active,.btn.primary{background:linear-gradient(180deg,#65c84e,#3ca12e);color:white;border-color:#3fa232}.btn.ghost{background:white}.btn.small{padding:8px 12px;font-size:13px}.stage{display:grid;grid-template-columns:360px 1fr;gap:26px;align-items:center;min-height:270px}.kanjiBox{padding:10px 20px}.tiny{font-size:14px;color:#6f8069;font-weight:800}.bigKanji{font-size:86px;line-height:1.15;color:#171717;margin:20px 0;text-align:center}.answerFields{display:grid;gap:24px}.answerField label{display:block;font-weight:900;margin-bottom:8px;color:#1d421b}.answer{border:2px dashed #abd59d;border-radius:16px;min-height:64px;padding:16px 20px;font-size:28px;background:linear-gradient(180deg,#fbfff8,#f5fcef);display:flex;justify-content:space-between;align-items:center;color:#206218}.speaker{border:1px solid var(--line);background:#f7fff2;border-radius:14px;padding:10px;cursor:pointer}.navline{display:flex;justify-content:center;align-items:center;gap:44px;margin-top:18px}.round{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#f8fff4;color:#286322;font-size:24px;cursor:pointer}.count{font-weight:900;font-size:19px;color:#111}.tableWrap{overflow:auto;max-height:390px}.vocabTable{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden}.vocabTable th{background:#f1fae7;color:#2b4d22}.vocabTable th,.vocabTable td{border:1px solid #e4efd9;padding:12px;text-align:left}.status{background:#e8f7dc;color:#2a7c22;border-radius:8px;padding:6px 12px;font-weight:900;font-size:13px;display:inline-block}.star{font-size:24px;color:#2b6b23;background:none;border:0;cursor:pointer}.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.choice{text-align:left;background:white;border:2px solid var(--line);border-radius:14px;padding:16px;font-size:20px;font-weight:900;cursor:pointer}.choice.correct{border-color:#23a43a;background:#efffeb;color:#16852d}.choice.wrong{border-color:#e4454e;background:#fff1f1;color:#c92c35}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{border:1.5px solid var(--line);border-radius:14px;background:white;padding:18px;text-align:center}.stat .n{font-size:25px;color:#23621d;font-weight:900}.goalRow{display:flex;justify-content:space-between;font-size:18px;margin:8px 0 12px}.bar{height:14px;border-radius:99px;background:#e6f2df;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#4cb334,#76cc5d);width:0%}.wrongEmpty{text-align:center;background:linear-gradient(180deg,#fbfff6,#f0fae7);border:1px solid var(--line);border-radius:16px;padding:35px;color:#477346}.wrongEmpty .clover{font-size:54px}.wrongItem{border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px;margin-bottom:8px}.quick input,.quick select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px;margin-bottom:7px}.quick button{width:100%}.writing{min-height:190px;background:linear-gradient(90deg,transparent 49.5%,#d9ebd0 49.5%,#d9ebd0 50.5%,transparent 50.5%),linear-gradient(transparent 49.5%,#d9ebd0 49.5%,#d9ebd0 50.5%,transparent 50.5%),#fff;border:2px dashed #add49d;border-radius:18px}.hidden{display:none!important}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}.stage{grid-template-columns:1fr}.tabs{grid-template-columns:repeat(2,1fr)}h1{font-size:32px}.hero{grid-template-columns:1fr}.hero-actions{margin-left:90px}.bigKanji{font-size:70px}.answer{font-size:23px}.quizChoices{grid-template-columns:1fr}}
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <section class="hero">
-      <h1>☘️ 행운 네잎클로버 일본어 단어장</h1>
-      <p>
-        하루에 두 과씩 차곡차곡 저장하는 <b>7과·8과 전용 v1</b>이야.<br>
-        <b>한자 → 히라가나</b>, <b>히라가나 → 한자</b>, <b>뜻 맞히기</b>, <b>오답노트</b>, <b>DB 내보내기/가져오기</b>까지 넣었어.
-      </p>
-      <div class="clover-row">
-        <span class="lucky">오늘의 행운: 7과 + 8과 완주하면 9과가 쉬워진다 🍀</span>
-      </div>
-    </section>
-
-    <div class="tabs" id="tabs"></div>
-
-    <div class="layout">
-      <main class="card">
-        <h2 class="section-title">🎯 학습 / 퀴즈</h2>
-        <div class="subtext">시험용 핵심은 <b>한자 보고 읽기</b>랑 <b>읽기 보고 한자 떠올리기</b>야. 오늘은 7과·8과만 딱 잡자!</div>
-
-        <div class="mode-row" id="modes"></div>
-        <div class="progress"><div class="fill" id="fill"></div></div>
-        <div class="subtext" id="progressText" style="margin-top:8px">진도 0%</div>
-
-        <div class="toolbar">
-          <button class="btn primary" id="shuffleBtn">랜덤 시작</button>
-          <button class="btn soft" id="prevBtn">이전</button>
-          <button class="btn soft" id="nextBtn">다음</button>
-          <button class="btn gold" id="toggleAnswerBtn">정답 보기</button>
-          <button class="btn soft" id="markKnownBtn">외웠음 체크</button>
-        </div>
-
-        <div id="contentArea"></div>
-      </main>
-
-      <aside style="display:grid;gap:18px">
-        <section class="card">
-          <h3 class="section-title">📊 오늘의 체크</h3>
-          <div class="stat-grid">
-            <div class="stat"><div class="n" id="totalCount">0</div><div>전체</div></div>
-            <div class="stat"><div class="n" id="solvedCount">0</div><div>외움</div></div>
-            <div class="stat"><div class="n" id="wrongCount">0</div><div>오답</div></div>
-            <div class="stat"><div class="n" id="currentCount">0</div><div>현재</div></div>
-          </div>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">🖊️ 손글씨 연습</h3>
-          <div class="hint">단어를 보고 바로 써보는 미니 칸이야. 히라가나 읽기 먼저 쓰고, 한자도 따라 쓰면 좋아 ✍️</div>
-          <div class="draw-tools" style="margin-top:10px">
-            <button class="tool-btn active" id="penBtn">펜</button>
-            <button class="tool-btn" id="eraserBtn">지우개</button>
-            <button class="tool-btn" id="clearCanvasBtn">전체 지우기</button>
-          </div>
-          <canvas id="drawCanvas" class="draw-canvas" width="520" height="260"></canvas>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">💚 오답노트</h3>
-          <div class="wrong-list" id="wrongList"></div>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">➕ DB 카드 추가</h3>
-          <div class="form-grid">
-            <select id="addCategory"></select>
-            <input id="addKanji" placeholder="한자 표기 예: 風" />
-            <input id="addReading" placeholder="히라가나 읽기 예: かぜ" />
-            <input id="addMeaning" placeholder="뜻 예: 바람" />
-            <button class="btn primary" id="addBtn">카드 추가</button>
-          </div>
-          <div class="foot">내일 9과·10과도 여기서 바로 추가 가능해 ☘️</div>
-        </section>
-
-        <section class="card">
-          <h3 class="section-title">🗄️ 데이터베이스 관리</h3>
-          <div class="data-box">
-            <div class="hint">localStorage에 진도/오답/추가카드가 저장돼. GitHub Pages에서도 같은 브라우저면 유지돼!</div>
-            <div class="toolbar">
-              <button class="btn soft" id="exportBtn">DB 내보내기</button>
-              <button class="btn soft" id="importBtn">DB 가져오기</button>
-              <button class="btn gold" id="resetBtn">진도 초기화</button>
-            </div>
-            <textarea id="dbBox" placeholder="내보낸 JSON 또는 가져올 JSON이 여기에 표시돼"></textarea>
-          </div>
-        </section>
-      </aside>
-    </div>
-  </div>
-
-  <script>
-    const baseDeck = {
-      "7과": [
-        {kanji:"薬局", reading:"やっきょく", meaning:"약국"},
-        {kanji:"課長", reading:"かちょう", meaning:"과장"},
-        {kanji:"食事", reading:"しょくじ", meaning:"식사"},
-        {kanji:"未成年", reading:"みせいねん", meaning:"미성년자"},
-        {kanji:"来年", reading:"らいねん", meaning:"내년"},
-        {kanji:"定休日", reading:"ていきゅうび", meaning:"정기 휴일"},
-        {kanji:"外食", reading:"がいしょく", meaning:"외식"},
-        {kanji:"連休", reading:"れんきゅう", meaning:"연휴"}
-      ],
-      "8과": [
-        {kanji:"運転", reading:"うんてん", meaning:"운전"},
-        {kanji:"紅葉", reading:"こうよう", meaning:"단풍"},
-        {kanji:"温泉", reading:"おんせん", meaning:"온천"},
-        {kanji:"安心", reading:"あんしん", meaning:"안심"},
-        {kanji:"会話", reading:"かいわ", meaning:"회화, 대화"},
-        {kanji:"大雪", reading:"おおゆき", meaning:"폭설, 큰 눈"},
-        {kanji:"奥さん", reading:"おくさん", meaning:"부인, 아내"},
-        {kanji:"風", reading:"かぜ", meaning:"바람"}
-      ],
-      "9과": [],
-      "10과": [],
-      "11과": [],
-      "12과": []
-    };
-
-    const MODES = [
-      {key:"flash", label:"플래시카드"},
-      {key:"kanjiToReading", label:"한자→히라가나"},
-      {key:"readingToKanji", label:"히라가나→한자"},
-      {key:"meaningQuiz", label:"뜻 맞히기"},
-      {key:"write", label:"쓰기 모드"},
-      {key:"list", label:"단어장 보기"}
-    ];
-
-    let extraDeck = JSON.parse(localStorage.getItem("clover_extra_v1") || "{}");
-    let wrongNotes = JSON.parse(localStorage.getItem("clover_wrong_v1") || "[]");
-    let solved = JSON.parse(localStorage.getItem("clover_solved_v1") || "{}");
-    let currentTab = "7과";
-    let currentMode = "flash";
-    let currentIndex = 0;
-    let reveal = false;
-    let currentChoices = [];
-    let currentAnswered = false;
-
-    function save(){
-      localStorage.setItem("clover_extra_v1", JSON.stringify(extraDeck));
-      localStorage.setItem("clover_wrong_v1", JSON.stringify(wrongNotes));
-      localStorage.setItem("clover_solved_v1", JSON.stringify(solved));
-    }
-    function getDeck(){
-      const merged = JSON.parse(JSON.stringify(baseDeck));
-      Object.keys(extraDeck).forEach(k=>{
-        if(!merged[k]) merged[k]=[];
-        merged[k] = merged[k].concat(extraDeck[k]);
-      });
-      return merged;
-    }
-    function getTabs(){ return [...Object.keys(baseDeck), "총망라 퀴즈"]; }
-    function getList(tab){
-      const deck = getDeck();
-      if(tab === "총망라 퀴즈") return Object.keys(deck).flatMap(k => deck[k] || []);
-      return deck[tab] || [];
-    }
-    function shuffle(arr){
-      const copy=[...arr];
-      for(let i=copy.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [copy[i],copy[j]]=[copy[j],copy[i]];
-      }
-      return copy;
-    }
-    function pickChoices(correctValue, pool, field){
-      const others = shuffle(pool.filter(v=>v[field] !== correctValue)).slice(0,3).map(v=>v[field]);
-      return shuffle([correctValue, ...others]);
-    }
-    function currentList(){ return getList(currentTab); }
-    function currentCard(){ return currentList()[currentIndex] || null; }
-    function cardId(card){ return `${currentTab}__${card.kanji}__${card.reading}`; }
-    function prepareChoices(){
-      const card=currentCard();
-      if(!card){ currentChoices=[]; return; }
-      const all=Object.values(getDeck()).flat();
-      const pool=currentList().length>=4 ? currentList() : all;
-      if(currentMode==="kanjiToReading") currentChoices=pickChoices(card.reading,pool,"reading");
-      else if(currentMode==="readingToKanji") currentChoices=pickChoices(card.kanji,pool,"kanji");
-      else if(currentMode==="meaningQuiz") currentChoices=pickChoices(card.meaning,pool,"meaning");
-      else currentChoices=[];
-      currentAnswered=false; reveal=false;
-    }
-    function renderTabs(){
-      const tabs=document.getElementById("tabs");
-      tabs.innerHTML="";
-      getTabs().forEach(tab=>{
-        const b=document.createElement("button");
-        b.className="tab"+(tab===currentTab?" active":"");
-        b.textContent=tab;
-        b.onclick=()=>{currentTab=tab;currentIndex=0;prepareChoices();render();};
-        tabs.appendChild(b);
-      });
-      const sel=document.getElementById("addCategory");
-      sel.innerHTML="";
-      Object.keys(baseDeck).forEach(tab=>{
-        const op=document.createElement("option");
-        op.value=tab; op.textContent=tab; sel.appendChild(op);
-      });
-    }
-    function renderModes(){
-      const modes=document.getElementById("modes");
-      modes.innerHTML="";
-      MODES.forEach(m=>{
-        const b=document.createElement("button");
-        b.className="mode"+(m.key===currentMode?" active":"");
-        b.textContent=m.label;
-        b.onclick=()=>{currentMode=m.key;currentIndex=0;prepareChoices();render();};
-        modes.appendChild(b);
-      });
-    }
-    function renderStats(){
-      const list=currentList();
-      const solvedCount=list.filter(c=>solved[cardId(c)]).length;
-      document.getElementById("totalCount").textContent=list.length;
-      document.getElementById("solvedCount").textContent=solvedCount;
-      document.getElementById("wrongCount").textContent=wrongNotes.length;
-      document.getElementById("currentCount").textContent=list.length?`${currentIndex+1}`:0;
-      const progress=list.length?Math.round((solvedCount/list.length)*100):0;
-      document.getElementById("fill").style.width=progress+"%";
-      document.getElementById("progressText").textContent=`진도 ${progress}% · ${solvedCount}/${list.length}`;
-    }
-    function markWrong(card,prompt,correct){
-      wrongNotes.unshift({tab:currentTab,kanji:card.kanji,reading:card.reading,meaning:card.meaning,prompt,correct});
-      save(); renderWrong();
-    }
-    function renderFlash(card){
-      return `<div class="study-box">
-        <div class="label">플래시카드</div>
-        <div class="big jp">${card.kanji}</div>
-        <div class="meta">
-          <div class="chip"><div class="label">읽기</div><div class="mid jp-soft">${reveal?card.reading:"???"}</div></div>
-          <div class="chip"><div class="label">뜻</div><div class="mid" style="font-size:18px">${reveal?card.meaning:"가리고 외워보기"}</div></div>
-        </div>
-      </div>`;
-    }
-    function renderQuiz(card,mode){
-      const map={
-        kanjiToReading:{prompt:card.kanji, correct:card.reading, label:"한자를 보고 알맞은 히라가나 고르기"},
-        readingToKanji:{prompt:card.reading, correct:card.kanji, label:"히라가나를 보고 알맞은 한자 고르기"},
-        meaningQuiz:{prompt:card.kanji, correct:card.meaning, label:"한자를 보고 알맞은 뜻 고르기"}
-      };
-      const q=map[mode];
-      return `<div class="quiz-box">
-        <div class="label">${q.label}</div>
-        <div class="big jp">${q.prompt}</div>
-        <div class="meta">
-          <div class="chip"><div class="label">힌트</div><div class="mid jp-soft" style="font-size:18px">${mode==="meaningQuiz"?card.reading:card.meaning}</div></div>
-          <div class="chip"><div class="label">정답 보기</div><div class="mid jp-soft" style="font-size:18px">${reveal?q.correct:"선택 후 확인"}</div></div>
-        </div>
-        <div class="choices" id="choicesArea"></div>
-        <div id="answerArea"></div>
-      </div>`;
-    }
-    function renderWrite(card){
-      return `<div class="write-box">
-        <div class="label">쓰기 모드</div>
-        <div class="mid">문제: <b class="jp">${Math.random()<0.5?card.kanji:card.reading}</b></div>
-        <div class="hint" style="margin-top:8px">종이에 직접 써보고 정답 보기로 확인해줘.</div>
-        <div class="write-grid"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
-        <div class="data-box" style="margin-top:14px">
-          <div class="label">정답</div>
-          <div class="mid" style="font-size:20px">한자: <span class="jp">${reveal?card.kanji:"가리고 써보기"}</span></div>
-          <div class="mid" style="font-size:20px;margin-top:8px">읽기: <span class="jp-soft">${reveal?card.reading:"가리고 써보기"}</span></div>
-          <div class="mid" style="font-size:16px;margin-top:8px">뜻: ${reveal?card.meaning:"가리고 써보기"}</div>
-        </div>
-      </div>`;
-    }
-    function renderList(list){
-      return `<div class="list-box">${list.map(item=>`
-        <div class="vocab-item">
-          <div><div class="vocab-main jp">${item.kanji}</div><div class="vocab-sub"><span class="jp-soft">${item.reading}</span> · ${item.meaning}</div></div>
-          <div class="badge">☘️</div>
-        </div>`).join("")}</div>`;
-    }
-    function renderContent(){
-      const area=document.getElementById("contentArea");
-      const card=currentCard();
-      if(!card){area.innerHTML=`<div class="study-box"><div class="mid">아직 카드가 없어 ☘️ 오른쪽에서 추가해줘!</div></div>`;return;}
-      if(currentMode==="flash") area.innerHTML=renderFlash(card);
-      else if(["kanjiToReading","readingToKanji","meaningQuiz"].includes(currentMode)) area.innerHTML=renderQuiz(card,currentMode);
-      else if(currentMode==="write") area.innerHTML=renderWrite(card);
-      else area.innerHTML=renderList(currentList());
-
-      if(["kanjiToReading","readingToKanji","meaningQuiz"].includes(currentMode)){
-        const map={
-          kanjiToReading:{correct:card.reading,prompt:card.kanji},
-          readingToKanji:{correct:card.kanji,prompt:card.reading},
-          meaningQuiz:{correct:card.meaning,prompt:card.kanji}
-        };
-        const q=map[currentMode], choicesArea=document.getElementById("choicesArea"), answerArea=document.getElementById("answerArea");
-        choicesArea.innerHTML="";
-        currentChoices.forEach(choice=>{
-          const b=document.createElement("button");
-          b.className="choice jp-soft";
-          b.textContent=choice;
-          b.onclick=()=>{
-            if(currentAnswered) return;
-            currentAnswered=true; reveal=true;
-            if(choice===q.correct){
-              b.classList.add("correct"); solved[cardId(card)]=true; save();
-              answerArea.innerHTML=`<div class="answer-msg ok">정답 ☘️<br><span class="jp">${card.kanji}</span> → <span class="jp-soft">${card.reading}</span><br>${card.meaning}</div>`;
-            }else{
-              b.classList.add("wrong");
-              [...choicesArea.children].forEach(el=>{if(el.textContent===q.correct) el.classList.add("correct");});
-              markWrong(card,q.prompt,q.correct);
-              answerArea.innerHTML=`<div class="answer-msg bad">오답 체크 완료 💚<br>정답: <span class="jp-soft">${q.correct}</span><br><span class="jp">${card.kanji}</span> · <span class="jp-soft">${card.reading}</span> · ${card.meaning}</div>`;
-            }
-            renderStats();
-          };
-          choicesArea.appendChild(b);
-        });
-      }
-    }
-    function renderWrong(){
-      const wrap=document.getElementById("wrongList");
-      if(!wrongNotes.length){wrap.innerHTML=`<div class="hint">아직 오답이 없어. 완전 좋은 시작이야 🍀</div>`;return;}
-      wrap.innerHTML=wrongNotes.map((w,idx)=>`<div class="wrong-item">
-        <div class="badge">${w.tab}</div>
-        <div style="margin-top:8px;font-weight:900" class="jp">${w.kanji}</div>
-        <div class="subtext" style="margin-top:4px"><span class="jp-soft">${w.reading}</span> · ${w.meaning}</div>
-        <div class="subtext" style="margin-top:8px"><b>문제:</b> ${w.prompt}</div>
-        <div class="subtext"><b>정답:</b> ${w.correct}</div>
-        <div style="margin-top:8px"><button class="mini-btn" data-del="${idx}">삭제</button></div>
-      </div>`).join("");
-      wrap.querySelectorAll("[data-del]").forEach(btn=>{
-        btn.onclick=()=>{wrongNotes.splice(Number(btn.dataset.del),1);save();renderWrong();renderStats();};
-      });
-    }
-    function addCard(){
-      const category=document.getElementById("addCategory").value;
-      const kanji=document.getElementById("addKanji").value.trim();
-      const reading=document.getElementById("addReading").value.trim();
-      const meaning=document.getElementById("addMeaning").value.trim();
-      if(!kanji||!reading||!meaning) return;
-      if(!extraDeck[category]) extraDeck[category]=[];
-      extraDeck[category].push({kanji,reading,meaning});
-      document.getElementById("addKanji").value="";
-      document.getElementById("addReading").value="";
-      document.getElementById("addMeaning").value="";
-      save(); render();
-    }
-    function render(){renderTabs();renderModes();renderStats();renderContent();renderWrong();}
-    document.getElementById("shuffleBtn").onclick=()=>{const list=currentList();if(!list.length)return;currentIndex=Math.floor(Math.random()*list.length);prepareChoices();render();};
-    document.getElementById("prevBtn").onclick=()=>{if(currentIndex>0)currentIndex--;prepareChoices();render();};
-    document.getElementById("nextBtn").onclick=()=>{if(currentIndex<currentList().length-1)currentIndex++;else currentIndex=0;prepareChoices();render();};
-    document.getElementById("toggleAnswerBtn").onclick=()=>{reveal=!reveal;renderContent();};
-    document.getElementById("markKnownBtn").onclick=()=>{const card=currentCard();if(card){solved[cardId(card)]=true;save();renderStats();}};
-    document.getElementById("addBtn").onclick=addCard;
-    document.getElementById("exportBtn").onclick=()=>{document.getElementById("dbBox").value=JSON.stringify({extraDeck,wrongNotes,solved},null,2);};
-    document.getElementById("importBtn").onclick=()=>{
-      try{
-        const data=JSON.parse(document.getElementById("dbBox").value);
-        extraDeck=data.extraDeck||{}; wrongNotes=data.wrongNotes||[]; solved=data.solved||{};
-        save(); render();
-      }catch(e){alert("JSON 형식을 확인해줘!");}
-    };
-    document.getElementById("resetBtn").onclick=()=>{if(confirm("진도와 오답만 초기화할까? 추가카드는 유지돼.")){wrongNotes=[];solved={};save();render();}};
-
-    function setupDrawBoard(){
-      const canvas=document.getElementById("drawCanvas"), ctx=canvas.getContext("2d");
-      const ratio=window.devicePixelRatio||1, rect=canvas.getBoundingClientRect();
-      canvas.width=Math.floor((rect.width||520)*ratio); canvas.height=Math.floor((rect.height||260)*ratio);
-      ctx.setTransform(ratio,0,0,ratio,0,0); ctx.lineCap="round"; ctx.lineJoin="round";
-      let drawing=false, erasing=false, lastX=0,lastY=0;
-      function pos(e){const r=canvas.getBoundingClientRect(), p=e.touches?e.touches[0]:e; return {x:p.clientX-r.left,y:p.clientY-r.top};}
-      function start(e){drawing=true; const p=pos(e); lastX=p.x; lastY=p.y;}
-      function move(e){if(!drawing)return; e.preventDefault(); const p=pos(e); ctx.globalCompositeOperation=erasing?"destination-out":"source-over"; ctx.strokeStyle=erasing?"rgba(0,0,0,1)":"#315239"; ctx.lineWidth=erasing?18:3.5; ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(p.x,p.y); ctx.stroke(); lastX=p.x; lastY=p.y;}
-      function end(){drawing=false;}
-      function setTool(tool){erasing=tool==="eraser"; document.getElementById("penBtn").classList.toggle("active",!erasing); document.getElementById("eraserBtn").classList.toggle("active",erasing);}
-      document.getElementById("penBtn").onclick=()=>setTool("pen");
-      document.getElementById("eraserBtn").onclick=()=>setTool("eraser");
-      document.getElementById("clearCanvasBtn").onclick=()=>ctx.clearRect(0,0,canvas.width,canvas.height);
-      canvas.addEventListener("mousedown",start); canvas.addEventListener("mousemove",move); window.addEventListener("mouseup",end); canvas.addEventListener("mouseleave",end);
-      canvas.addEventListener("touchstart",start,{passive:false}); canvas.addEventListener("touchmove",move,{passive:false}); window.addEventListener("touchend",end); canvas.addEventListener("touchcancel",end);
-    }
-    prepareChoices(); render(); setupDrawBoard();
-  </script>
-</body>
-</html>
+<body><div class="wrap">
+  <header class="hero"><div><h1>일본어(중급) 단어 학습 🍀</h1><div class="subtitle">7과 ~ 12과 단어를 다양한 방법으로 공부해요!</div></div><div class="hero-actions"><div class="pill">🍀 오늘의 목표 <b id="goalTop">20개</b></div><button class="pill gear" id="resetBtn">⚙ 설정</button></div></header>
+  <nav class="tabs" id="tabs"></nav>
+  <main class="shell"><div class="grid"><section>
+    <div class="card"><h2 class="title">🍀 학습 모드</h2><div class="mode-row" id="modes"></div></div>
+    <div class="card" id="mainStage"></div>
+    <div class="card"><h2 class="title">🍀 단어장 보기 <span id="tabName"></span></h2><div class="tableWrap"><table class="vocabTable"><thead><tr><th>번호</th><th>한자</th><th>읽는 법</th><th>뜻</th><th>학습 상태</th><th>액션</th></tr></thead><tbody id="vocabBody"></tbody></table></div></div>
+  </section><aside>
+    <div class="card"><h2 class="title">🍀 학습 현황</h2><div class="stats"><div class="stat">📗<div>전체 단어 수</div><div class="n" id="totalN">0개</div></div><div class="stat">🎓<div>학습한 단어</div><div class="n" id="learnedN">0개</div></div><div class="stat">✅<div>맞춘 개수</div><div class="n" id="correctN">0개</div></div><div class="stat">❌<div>틀린 개수</div><div class="n" id="wrongN">0개</div></div></div></div>
+    <div class="card"><h2 class="title">🍀 오늘의 목표 <button class="btn small ghost" id="goalBtn" style="float:right">수정</button></h2><div class="goalRow"><span><b id="goalDone">0개</b> / <span id="goalTotal">20개</span></span><span id="goalPct">0%</span></div><div class="bar"><div class="fill" id="goalFill"></div></div></div>
+    <div class="card"><h2 class="title">🍀 오답 노트 <button class="btn small ghost" id="clearWrong" style="float:right">전체 삭제</button></h2><div id="wrongList"></div></div>
+    <div class="card quick"><h2 class="title">🍀 빠른 추가</h2><p class="tiny">새 단어를 직접 추가할 수 있어요!</p><select id="addLesson"></select><input id="addKanji" placeholder="한자 입력"><input id="addReading" placeholder="읽는 법（ひらがな）입력"><input id="addMeaning" placeholder="뜻 입력"><button class="btn primary" id="addBtn">＋ 단어 추가</button></div>
+  </aside></div></main>
+</div>
+<script>
+const baseDeck={
+"7과":[{kanji:"薬局",reading:"やっきょく",meaning:"약국"},{kanji:"課長",reading:"かちょう",meaning:"과장, 부장급"},{kanji:"食事",reading:"しょくじ",meaning:"식사"},{kanji:"未成年",reading:"みせいねん",meaning:"미성년자"},{kanji:"来年",reading:"らいねん",meaning:"내년"},{kanji:"定休日",reading:"ていきゅうび",meaning:"정기 휴일"},{kanji:"外食",reading:"がいしょく",meaning:"외식"},{kanji:"連休",reading:"れんきゅう",meaning:"연휴"}],
+"8과":[{kanji:"運転",reading:"うんてん",meaning:"운전"},{kanji:"紅葉",reading:"こうよう",meaning:"단풍"},{kanji:"温泉",reading:"おんせん",meaning:"온천"},{kanji:"安心",reading:"あんしん",meaning:"안심"},{kanji:"会話",reading:"かいわ",meaning:"회화, 대화"},{kanji:"大雪",reading:"おおゆき",meaning:"큰 눈, 폭설"},{kanji:"奥さん",reading:"おくさん",meaning:"부인, 아내"},{kanji:"風",reading:"かぜ",meaning:"바람"}],
+"9과":[{kanji:"出発",reading:"しゅっぱつ",meaning:"출발"},{kanji:"景色",reading:"けしき",meaning:"경치"},{kanji:"最高",reading:"さいこう",meaning:"최고"},{kanji:"去年",reading:"きょねん",meaning:"작년"},{kanji:"色",reading:"いろ",meaning:"색"},{kanji:"気温",reading:"きおん",meaning:"기온"},{kanji:"差",reading:"さ",meaning:"차이"},{kanji:"秋",reading:"あき",meaning:"가을"},{kanji:"性格",reading:"せいかく",meaning:"성격"},{kanji:"用事",reading:"ようじ",meaning:"용무, 볼일"},{kanji:"失礼",reading:"しつれい",meaning:"실례"},{kanji:"集中",reading:"しゅうちゅう",meaning:"집중"},{kanji:"歌",reading:"うた",meaning:"노래"},{kanji:"海外",reading:"かいがい",meaning:"해외"},{kanji:"寒気",reading:"さむけ",meaning:"오한, 추위"},{kanji:"天気予報",reading:"てんきよほう",meaning:"일기예보"},{kanji:"駅前",reading:"えきまえ",meaning:"역 앞"},{kanji:"留学",reading:"りゅうがく",meaning:"유학"},{kanji:"後輩",reading:"こうはい",meaning:"후배"}],
+"10과":[{kanji:"半額",reading:"はんがく",meaning:"반액, 반값"},{kanji:"小説",reading:"しょうせつ",meaning:"소설"},{kanji:"若者",reading:"わかもの",meaning:"젊은이"},{kanji:"研究室",reading:"けんきゅうしつ",meaning:"연구실"},{kanji:"展覧会",reading:"てんらんかい",meaning:"전람회, 전시회"},{kanji:"毎晩",reading:"まいばん",meaning:"매일 밤"},{kanji:"経験",reading:"けいけん",meaning:"경험"},{kanji:"弟",reading:"おとうと",meaning:"남동생"},{kanji:"社員",reading:"しゃいん",meaning:"사원"},{kanji:"社長",reading:"しゃちょう",meaning:"사장"},{kanji:"医者",reading:"いしゃ",meaning:"의사"},{kanji:"患者",reading:"かんじゃ",meaning:"환자"},{kanji:"食後",reading:"しょくご",meaning:"식후"},{kanji:"非喫煙者",reading:"ひきつえんしゃ",meaning:"비흡연자"}],
+"11과":[{kanji:"種類",reading:"しゅるい",meaning:"종류"},{kanji:"外国語",reading:"がいこくご",meaning:"외국어"},{kanji:"何度",reading:"なんど",meaning:"몇 번, 몇 도"},{kanji:"次",reading:"つぎ",meaning:"다음"},{kanji:"経験者",reading:"けいけんしゃ",meaning:"경험자"},{kanji:"意見",reading:"いけん",meaning:"의견"},{kanji:"就職",reading:"しゅうしょく",meaning:"취직"},{kanji:"質問",reading:"しつもん",meaning:"질문"},{kanji:"店員",reading:"てんいん",meaning:"점원"},{kanji:"荷物",reading:"にもつ",meaning:"짐"},{kanji:"国内",reading:"こくない",meaning:"국내"}],
+"12과":[{kanji:"正月",reading:"しょうがつ",meaning:"정월, 설날"},{kanji:"お母様",reading:"おかあさま",meaning:"어머님"},{kanji:"少々",reading:"しょうしょう",meaning:"조금, 잠시"},{kanji:"遠慮",reading:"えんりょ",meaning:"사양, 배려"},{kanji:"件",reading:"けん",meaning:"건, 사건"},{kanji:"直接",reading:"ちょくせつ",meaning:"직접"},{kanji:"事件",reading:"じけん",meaning:"사건"},{kanji:"待合室",reading:"まちあいしつ",meaning:"대합실, 대기실"},{kanji:"希望",reading:"きぼう",meaning:"희망"},{kanji:"参加",reading:"さんか",meaning:"참가"},{kanji:"部長",reading:"ぶちょう",meaning:"부장"},{kanji:"席",reading:"せき",meaning:"자리"},{kanji:"問題",reading:"もんだい",meaning:"문제"}]
+};
+const modes=[['flash','▣ 플래시카드'],['k2r','한자→히라가나'],['r2k','히라가나→한자'],['write','✎ 종이쓰기 모드'],['wrong','🍀 오답만 복습']];
+let extra=JSON.parse(localStorage.getItem('fourleaf_extra')||'{}'), learned=JSON.parse(localStorage.getItem('fourleaf_learned')||'{}'), wrong=JSON.parse(localStorage.getItem('fourleaf_wrong')||'[]'), fav=JSON.parse(localStorage.getItem('fourleaf_fav')||'{}'), goal=+localStorage.getItem('fourleaf_goal')||20;
+let tab='7과', mode='flash', idx=0, reveal=false, answered=false;
+const $=id=>document.getElementById(id); const lessons=()=>Object.keys(baseDeck); function deck(){let d=JSON.parse(JSON.stringify(baseDeck));Object.keys(extra).forEach(k=>d[k]=(d[k]||[]).concat(extra[k]));return d} function list(){let d=deck();return tab==='총망라 퀴즈'?lessons().flatMap(k=>d[k]):(d[tab]||[])} function id(c){return c.kanji+'|'+c.reading+'|'+c.meaning} function all(){let d=deck();return lessons().flatMap(k=>d[k])} function save(){localStorage.setItem('fourleaf_extra',JSON.stringify(extra));localStorage.setItem('fourleaf_learned',JSON.stringify(learned));localStorage.setItem('fourleaf_wrong',JSON.stringify(wrong));localStorage.setItem('fourleaf_fav',JSON.stringify(fav));localStorage.setItem('fourleaf_goal',goal)} function speak(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='ja-JP';u.rate=.85;speechSynthesis.speak(u)}
+function renderTabs(){ $('tabs').innerHTML=[...lessons(),'총망라 퀴즈'].map(t=>`<button class="tab ${t===tab?'active':''}" onclick="tab='${t}';idx=0;reveal=false;answered=false;render()">🍀 ${t}</button>`).join(''); $('addLesson').innerHTML=lessons().map(x=>`<option>${x}</option>`).join('') }
+function renderModes(){ $('modes').innerHTML=modes.map(m=>`<button class="mode ${mode===m[0]?'active':''}" onclick="mode='${m[0]}';idx=0;reveal=false;answered=false;render()">${m[1]}</button>`).join('') }
+function current(){return list()[idx]||list()[0]} function move(n){let l=list();idx=(idx+n+l.length)%l.length;reveal=false;answered=false;render()} function mark(c,ok){learned[id(c)]=true;if(!ok){wrong.unshift({...c,when:new Date().toLocaleString()});wrong=wrong.slice(0,60)}save();render()}
+function choices(correct,field){let pool=all().map(x=>x[field]).filter(x=>x!==correct);return [...pool.sort(()=>Math.random()-.5).slice(0,3),correct].sort(()=>Math.random()-.5)}
+function renderStage(){let l= mode==='wrong' ? wrong : list(); if(!l.length){$('mainStage').innerHTML=`<div class="wrongEmpty"><div class="clover">🍀</div><b>아직 카드가 없어요!</b></div>`;return} if(idx>=l.length)idx=0;let c=l[idx]; let total=l.length;
+ if(mode==='write'){$('mainStage').innerHTML=`<div class="stage"><div class="kanjiBox"><div class="tiny">🍀 종이에 먼저 써보기</div><div class="bigKanji jp">${reveal?c.kanji:'???'}</div><button class="btn primary" onclick="reveal=!reveal;renderStage()">👁 정답 보기</button><button class="btn ghost" onclick="move(1)">다음 단어 →</button></div><div><div class="answerField"><label>문제</label><div class="answer jp">${Math.random()<.5?c.kanji:c.meaning}</div></div><div class="answerField"><label>쓰기칸</label><div class="writing"></div></div></div></div><div class="navline"><button class="round" onclick="move(-1)">‹</button><span class="count">${idx+1} / ${total}</span><button class="round" onclick="move(1)">›</button></div>`;return}
+ if(mode==='k2r'||mode==='r2k'){let field=mode==='k2r'?'reading':'kanji', prompt=mode==='k2r'?c.kanji:c.reading;let cs=choices(c[field],field);$('mainStage').innerHTML=`<div class="tiny">🍀 문제</div><div class="bigKanji jp">${prompt}</div><div class="quizChoices">${cs.map(x=>`<button class="choice jp" onclick="checkChoice(this,'${x.replace(/'/g,"\\'")}','${c[field].replace(/'/g,"\\'")}')">${x}</button>`).join('')}</div><div class="navline"><button class="round" onclick="move(-1)">‹</button><span class="count">${idx+1} / ${total}</span><button class="round" onclick="move(1)">›</button></div>`;return}
+ $('mainStage').innerHTML=`<div class="stage"><div class="kanjiBox"><div class="tiny">🍀 한자</div><div class="bigKanji jp">${c.kanji}</div><button class="btn primary" onclick="reveal=!reveal;renderStage()">👁 정답 보기</button><button class="btn ghost" onclick="move(1)">다음 단어 →</button></div><div class="answerFields"><div class="answerField"><label>읽는 법（ひらがな）</label><div class="answer jp">${reveal?c.reading:'　　　　'}<button class="speaker" onclick="speak('${c.reading}')">🔊</button></div></div><div class="answerField"><label>뜻</label><div class="answer">${reveal?c.meaning:'　　　　'}<button class="speaker" onclick="speak('${c.kanji}')">🔊</button></div></div></div></div><div class="navline"><button class="round" onclick="move(-1)">‹</button><span class="count">${idx+1} / ${total}</span><button class="round" onclick="move(1)">›</button></div>`}
+window.checkChoice=(el,choice,correct)=>{if(answered)return;answered=true;document.querySelectorAll('.choice').forEach(b=>{if(b.textContent===correct)b.classList.add('correct')}); let c=current(); if(choice===correct){el.classList.add('correct');mark(c,true)}else{el.classList.add('wrong');mark(c,false)}};
+function renderTable(){let l=list();$('tabName').textContent=`(${tab})`; $('vocabBody').innerHTML=l.map((c,i)=>`<tr><td>${i+1}</td><td class="jp">${c.kanji}</td><td class="jp">${c.reading}</td><td>${c.meaning}</td><td><span class="status">${learned[id(c)]?'학습완료':'미학습'}</span></td><td><button class="star" onclick="fav['${id(c)}']=!fav['${id(c)}'];save();renderTable()">${fav[id(c)]?'★':'☆'}</button><button class="speaker" onclick="speak('${c.kanji}')">🔊</button></td></tr>`).join('')}
+function renderStats(){let a=all(), done=a.filter(c=>learned[id(c)]).length, pct=Math.min(100,Math.round(done/goal*100));$('totalN').textContent=a.length+'개';$('learnedN').textContent=done+'개';$('correctN').textContent=done+'개';$('wrongN').textContent=wrong.length+'개';$('goalTop').textContent=goal+'개';$('goalTotal').textContent=goal+'개';$('goalDone').textContent=done+'개';$('goalPct').textContent=pct+'%';$('goalFill').style.width=pct+'%'}
+function renderWrong(){if(!wrong.length){$('wrongList').innerHTML=`<div class="wrongEmpty"><div class="clover">🍀</div><b>아직 오답이 없어요!</b><br><span>틀린 단어는 여기에 자동으로 추가돼요.</span></div>`;return}$('wrongList').innerHTML=wrong.slice(0,5).map((w,i)=>`<div class="wrongItem"><b class="jp">${w.kanji}</b> <span class="jp">${w.reading}</span><br><span>${w.meaning}</span><button class="btn small ghost" style="float:right" onclick="wrong.splice(${i},1);save();render()">삭제</button></div>`).join('')}
+function render(){renderTabs();renderModes();renderStage();renderTable();renderStats();renderWrong()} $('addBtn').onclick=()=>{let k=$('addLesson').value, a=$('addKanji').value.trim(), r=$('addReading').value.trim(), m=$('addMeaning').value.trim();if(!a||!r||!m)return alert('한자/읽는 법/뜻을 모두 입력해줘!');(extra[k]||(extra[k]=[])).push({kanji:a,reading:r,meaning:m});$('addKanji').value=$('addReading').value=$('addMeaning').value='';save();render()};$('clearWrong').onclick=()=>{wrong=[];save();render()};$('goalBtn').onclick=()=>{let n=prompt('오늘 목표 단어 수를 입력해줘!',goal);if(n){goal=+n||20;save();render()}};$('resetBtn').onclick=()=>alert('🍀 설정 팁: KleeOne-Regular.ttf를 index.html과 같은 폴더에 두면 일본어 글꼴이 예쁘게 적용돼!');render();
+</script></body></html>
